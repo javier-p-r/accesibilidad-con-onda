@@ -1,6 +1,12 @@
-import { Book, Users, Target, FileText, Download, Settings } from "lucide-react";
+import { Book, Users, Target, FileText, Download, Settings, Eye, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Link } from "react-router-dom";
 
 const units = [
@@ -46,6 +52,19 @@ const units = [
     icon: Users,
     path: "/unidad-6"
   }
+];
+
+const accessibilityFeatures = [
+  "Navegación por teclado completa",
+  "Etiquetas ARIA apropiadas", 
+  "Contraste WCAG AA cumplido",
+  "Texto alternativo en imágenes",
+  "Estructura semántica HTML5",
+  "Enlaces descriptivos",
+  "Headings jerárquicos correctos",
+  "Texto redimensionable hasta 200%",
+  "Focus visible en elementos interactivos",
+  "Contenido accesible para lectores de pantalla"
 ];
 
 const Index = () => {
@@ -166,10 +185,41 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="bg-course-surface border-t border-course-border mt-16">
-        <div className="container mx-auto px-4 py-8 text-center">
-          <p className="text-muted-foreground">
-            © 2024 <span className="font-medium text-course-primary">Javier Peña Rodríguez</span>
-          </p>
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              © 2024 <span className="font-medium text-course-primary">Javier Peña Rodríguez</span>
+            </p>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm" 
+                  className="hover:bg-course-light text-course-secondary"
+                  aria-label="Ver características de accesibilidad de esta página"
+                >
+                  <Eye className="h-4 w-4 mr-2" />
+                  Accesibilidad
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-80 bg-popover border-course-border">
+                <div className="p-2">
+                  <h3 className="font-semibold mb-2 text-course-primary">
+                    Características de Accesibilidad
+                  </h3>
+                  <div className="space-y-1">
+                    {accessibilityFeatures.map((feature, index) => (
+                      <DropdownMenuItem key={index} className="cursor-default">
+                        <Check className="h-3 w-3 mr-2 text-green-600 flex-shrink-0" />
+                        <span className="text-xs">{feature}</span>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
+                </div>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
       </footer>
     </div>
