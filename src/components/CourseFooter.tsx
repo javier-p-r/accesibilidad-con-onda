@@ -53,6 +53,12 @@ export const CourseFooter = ({ currentUnit, totalUnits = 6 }: CourseFooterProps)
             )}
           </div>
           
+          <div className="text-center">
+            <span className="text-sm font-medium text-course-secondary bg-course-light px-3 py-1 rounded-full">
+              Unidad {currentUnit}
+            </span>
+          </div>
+          
           <div>
             {nextUnit && (
               <Button

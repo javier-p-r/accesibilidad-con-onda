@@ -114,36 +114,37 @@ const Index = () => {
             {units.map((unit) => {
               const IconComponent = unit.icon;
               return (
-                <Card 
-                  key={unit.id} 
-                  className="hover:shadow-lg transition-all duration-300 border-course-border hover:border-course-secondary group"
+                <Link 
+                  key={unit.id}
+                  to={unit.path}
+                  className="group block"
+                  aria-label={`Acceder a la unidad ${unit.id}: ${unit.title}`}
                 >
-                  <CardHeader className="text-center pb-4">
-                    <div className="mx-auto w-16 h-16 bg-course-light rounded-full flex items-center justify-center mb-4 group-hover:bg-course-secondary group-hover:text-white transition-colors">
-                      <IconComponent className="h-8 w-8 text-course-secondary group-hover:text-white" />
-                    </div>
-                    <CardTitle className="text-xl mb-2 text-course-primary">
-                      <span className="font-bold text-course-secondary mr-2">
-                        {unit.id}.
-                      </span>
-                      {unit.title}
-                    </CardTitle>
-                    <CardDescription className="text-base leading-relaxed">
-                      {unit.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <Button 
-                      asChild 
-                      className="w-full bg-course-primary hover:bg-course-secondary"
-                      aria-label={`Acceder a la unidad ${unit.id}: ${unit.title}`}
-                    >
-                      <Link to={unit.path}>
+                  <Card className="hover:shadow-lg transition-all duration-300 border-course-border hover:border-course-secondary group-hover:cursor-pointer h-full">
+                    <CardHeader className="text-center pb-4">
+                      <div className="mx-auto w-16 h-16 bg-course-light rounded-full flex items-center justify-center mb-4 group-hover:bg-course-secondary group-hover:text-white transition-colors">
+                        <IconComponent className="h-8 w-8 text-course-secondary group-hover:text-white" />
+                      </div>
+                      <CardTitle className="text-xl mb-2 text-course-primary">
+                        <span className="font-bold text-course-secondary mr-2">
+                          {unit.id}.
+                        </span>
+                        {unit.title}
+                      </CardTitle>
+                      <CardDescription className="text-base leading-relaxed">
+                        {unit.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="pt-0">
+                      <Button 
+                        className="w-full bg-course-primary hover:bg-course-secondary pointer-events-none"
+                        tabIndex={-1}
+                      >
                         Acceder a Unidad
-                      </Link>
-                    </Button>
-                  </CardContent>
-                </Card>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
