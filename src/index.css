@@ -2,41 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system for accessibility course - purple palette */
 
 @layer base {
   :root {
+    /* Core colors from provided palette */
+    --purple-dark: 264 29% 32%;        /* #624480 */
+    --purple-light: 264 100% 91%;      /* #E9D4FF */
+    --purple-medium: 264 100% 76%;     /* #C387FF */
+    --purple-gray: 268 14% 42%;        /* #756A80 */
+    --purple-accent: 264 60% 60%;      /* #9C6CCC */
+    
+    /* Semantic color system */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 264 29% 15%;         /* Very dark purple for text */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 264 29% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 264 29% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 264 29% 32%;            /* Purple dark */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 264 100% 91%;         /* Purple light */
+    --secondary-foreground: 264 29% 32%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 264 20% 96%;              /* Very light purple tint */
+    --muted-foreground: 268 14% 42%;   /* Purple gray */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 264 60% 60%;             /* Purple accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 264 20% 90%;
+    --input: 264 20% 95%;
+    --ring: 264 60% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+    
+    /* Course-specific colors */
+    --course-primary: 264 29% 32%;     /* Main purple */
+    --course-secondary: 264 60% 60%;   /* Accent purple */
+    --course-light: 264 100% 91%;      /* Light background */
+    --course-surface: 264 20% 98%;     /* Card backgrounds */
+    --course-border: 264 20% 85%;      /* Subtle borders */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--purple-dark)), hsl(var(--purple-accent)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--course-surface)), white);
+    --gradient-accent: linear-gradient(90deg, hsl(var(--purple-medium)), hsl(var(--purple-light)));
+    
+    /* Accessibility-focused spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    
+    /* Typography scale for readability */
+    --text-xs: 0.875rem;    /* 14px */
+    --text-sm: 1rem;        /* 16px */
+    --text-base: 1.125rem;  /* 18px - enhanced base */
+    --text-lg: 1.25rem;     /* 20px */
+    --text-xl: 1.5rem;      /* 24px */
+    --text-2xl: 2rem;       /* 32px */
+    --text-3xl: 2.5rem;     /* 40px */
+    
+    /* Line heights for accessibility */
+    --leading-tight: 1.25;
+    --leading-normal: 1.6;   /* WCAG recommended minimum */
+    --leading-loose: 1.8;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +97,44 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 264 29% 8%;
+    --foreground: 264 100% 91%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 264 29% 12%;
+    --card-foreground: 264 100% 91%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 264 29% 12%;
+    --popover-foreground: 264 100% 91%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 264 100% 76%;
+    --primary-foreground: 264 29% 15%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 264 29% 20%;
+    --secondary-foreground: 264 100% 91%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 264 29% 18%;
+    --muted-foreground: 268 14% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 264 60% 60%;
+    --accent-foreground: 264 29% 15%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 264 29% 25%;
+    --input: 264 29% 20%;
+    --ring: 264 60% 60%;
+    
+    /* Dark mode course colors */
+    --course-primary: 264 100% 76%;
+    --course-secondary: 264 60% 60%;
+    --course-light: 264 29% 18%;
+    --course-surface: 264 29% 15%;
+    --course-border: 264 29% 30%;
+    
+    /* Dark mode gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--purple-accent)), hsl(var(--purple-medium)));
+    --gradient-card: linear-gradient(180deg, hsl(var(--course-surface)), hsl(264 29% 10%));
   }
 }
 
@@ -101,5 +145,43 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    line-height: var(--leading-normal);
+    font-size: var(--text-base);
+  }
+  
+  /* Enhanced focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+  
+  /* Skip link for keyboard navigation */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50;
+    @apply bg-primary text-primary-foreground px-4 py-2 rounded-md;
+  }
+  
+  /* Accessibility helpers */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
   }
 }

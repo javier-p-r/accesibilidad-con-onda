@@ -47,6 +47,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Course-specific color palette
+        course: {
+          primary: "hsl(var(--course-primary))",
+          secondary: "hsl(var(--course-secondary))",
+          light: "hsl(var(--course-light))",
+          surface: "hsl(var(--course-surface))",
+          border: "hsl(var(--course-border))",
+        },
+        purple: {
+          dark: "hsl(var(--purple-dark))",
+          light: "hsl(var(--purple-light))",
+          medium: "hsl(var(--purple-medium))",
+          gray: "hsl(var(--purple-gray))",
+          accent: "hsl(var(--purple-accent))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
