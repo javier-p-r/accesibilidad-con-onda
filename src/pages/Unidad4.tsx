@@ -4,7 +4,7 @@ import { CourseFooter } from "@/components/CourseFooter";
 const Unidad4 = () => {
   return (
     <div className="min-h-screen bg-background">
-      <CourseHeader unitTitle="Unidad 4: Navegación y Estructura de Documentos Accesibles" />
+      <CourseHeader unitTitle="Unidad 4: Navegación y Estructura de Documentos Accesibles y más" />
       
       <main id="main-content" className="container mx-auto px-4 py-8 max-w-4xl">
         <article className="prose prose-lg max-w-none">
